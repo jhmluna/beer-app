@@ -1,6 +1,14 @@
 class BeersController < ApplicationController
   before_action :set_beer, only: %i[show edit update destroy]
 
+  def index
+    @beers = policy_scope(Beer)
+  end
+    
+  def show
+    # set_beer - Substituido pelo before_action
+  end
+  
   def destroy
     @beer.destroy
     redirect_to beers_url, notice: 'Beer has been removed.'
