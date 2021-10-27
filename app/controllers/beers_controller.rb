@@ -21,6 +21,23 @@ class BeersController < ApplicationController
     redirect_to beer_path(@beer)
   end  
 
+  def new
+    @beer = Beer.new
+    authorize @beer
+  end
+
+  def create
+    @beer = Beer.new(beer_params)
+    @beer.user = current_user
+    authorize @beer
+
+    if @beer.save
+      redirect_to @beer, notice: 'Beer was successfully created into the catalog.'
+    else
+      render :new
+    end
+  end
+  
   private
 
   def set_beer
