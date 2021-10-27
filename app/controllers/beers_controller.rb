@@ -15,7 +15,8 @@ class BeersController < ApplicationController
     redirect_to beers_url, notice: 'Beer has been removed.'
   end
 
-  def edit; end
+  def edit
+  end
 
   def update
     @beer.update(beer_params)
