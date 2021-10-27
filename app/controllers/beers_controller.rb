@@ -19,6 +19,7 @@ class BeersController < ApplicationController
   def update
     @beer.update(beer_params)
     redirect_to beer_path(@beer)
+  end  
 
   private
 

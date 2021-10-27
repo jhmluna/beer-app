@@ -5,8 +5,10 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>User</th>
+      <th>Category</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Quantity</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,7 +19,7 @@
         <td><%= beer.category %></td>
         <td><%= beer.description %></td>
         <td><%= beer.price %></td>
-        <td><%= beer.qauntity %></td>
+        <td><%= beer.quantity %></td>
         <%#= Aqui estamos utilizando o email do usuário para demonstração %>
         <%#= Ao inves de vermos o user_id veremos o email do user %>
         <td><%= beer.user.email %></td>
