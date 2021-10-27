@@ -1,5 +1,6 @@
 class BeersController < ApplicationController
   before_action :set_beer, only: %i[show edit update destroy]
+  skip_before_action :authenticate_user!, only: :index
 
   def index
     @beers = policy_scope(Beer)
