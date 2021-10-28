@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update]
 
   def sale
-    @sales = Order.beer.where(user_id: current_user)
+    @sales = Order.where(beers: { user_id: current_user })
   end
 
   def show

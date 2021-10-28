@@ -5,5 +5,4 @@
 
 <%= link_to 'Edit', edit_user_path(@user) %>
 <%= link_to 'Orders', orders_path %>
-<%#= link_to 'Sales', sale_path %>
-
+<%= link_to 'Sales', user_sales_path(user_id: current_user) %>
