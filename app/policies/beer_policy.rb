@@ -22,16 +22,16 @@ class BeerPolicy < ApplicationPolicy
   end
 
   def update?
-    is_owner_or_admin?
+    owner_or_admin?
   end
 
   def destroy?
-    is_owner_or_admin?
+    owner_or_admin?
   end
 
   private
 
-  def is_owner_or_admin?
+  def owner_or_admin?
     record.user == user || user.admin
   end
 end
