@@ -2,14 +2,14 @@
 <div class="card-container">
   <div class="row">
     <div class="left col-md-6">
-      <%= cl_image_tag("development/Duvel_kjfno9.jpg") %>
+      <%#=  <%= cl_image_tag("development/Duvel_kjfno9.jpg") %>
     </div>
     <div class="right col-md-6">
       <h4 class="categorie"><%= @beer.name %></h4>
       <h3 class="product"><%= @beer.category %></h3>
       <p class="desc"><%= @beer.description %></p>
       <p class="price">R$ <%= @beer.price %></p>
-      <p class="buy">Buy now</p>
+      <p class="buy"><%=link_to "Buy Now", orders_path(beer_id: @beer.id), method: :post %></p>
     </div>
   </div>
 </div>

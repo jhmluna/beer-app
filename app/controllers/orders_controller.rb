@@ -3,26 +3,18 @@ class OrdersController < ApplicationController
     @orders = policy_scope(Order.where(user_id: current_user))
   end
 
-  def new
+ def create
     @order = Order.new
-    authorize @order
-  end
-
-  def create
-    @order = Order.new(order_params)
     @order.user = current_user
+    @order.date = Time.now
+    @order.beer_id = params[:beer_id] 
     authorize @order
 
     if @order.save
-      redirect_to @order, notice: 'Order was successfully created into the catalog.'
+      redirect_to orders_path, notice: 'Order was successfully created into the catalog.'
     else
-      render :new
+      redirect_to beer_path(@order.beer_id), notice: 'Order was not created'  
     end
   end
 
-  private
-
-  def order_params
-    params.require(:beer).permit(:date)
-  end
 end
