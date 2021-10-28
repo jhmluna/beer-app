@@ -2,7 +2,7 @@
 <div class="card-container">
   <div class="row">
     <div class="left col-md-6">
-      <%#=  <%= cl_image_tag("development/Duvel_kjfno9.jpg") %>
+      <%= cl_image_tag @beer.photo.key if @beer.photo.attached? %>
     </div>
     <div class="right col-md-6">
       <h4 class="categorie"><%= @beer.name %></h4>
