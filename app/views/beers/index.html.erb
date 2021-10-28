@@ -20,6 +20,6 @@
   <%#= current_user.id %>
   <br>
   <% if policy(Beer).new? %>
-    <%= link_to 'New Beer', new_beer_path %>
+   <p> <%= link_to 'Sell Beer', new_beer_path, class: "btn btn-primary" %></p>
   <% end %>
 </div>
