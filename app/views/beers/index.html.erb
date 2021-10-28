@@ -10,6 +10,7 @@
             <h5 class="card-title text-secondary mb-1"><%= beer.name %></h5>
             <h6 class="card-subtitle mb-2 text-muted"><%= beer.category %></h6>
             <p class="text-center font-weight-bold">R$ <%= beer.price %></p>
+            <a href="<%= beer_path(beer) %>" class="btn btn-primary stretched-link">Comprar</a>
           </div>
         </div>
       </div>
