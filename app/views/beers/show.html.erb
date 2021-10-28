@@ -1,22 +1,18 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @beer.category %>
-  <strong>Name:</strong>
-  <%= @beer.name %>
-  <strong>Description:</strong>
-  <%= @beer.description %>
-  <strong>Quantity:</strong>
-  <%= @beer.quantity %>
-  <strong>Price:</strong>
-  <%= @beer.price %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @beer.user_id %>
-</p>
+<%# Source: https://codepen.io/ThomasDaubenton/pen/EwVEjE %>
+<div class="card-container">
+  <div class="row">
+    <div class="left col-md-6">
+      <img class="headset" src="https://media.ldlc.com/r1600/ld/products/00/05/00/34/LD0005003477_2.jpg">
+    </div>
+    <div class="right col-md-6">
+      <h4 class="categorie"><%= @beer.name %></h4>
+      <h3 class="product"><%= @beer.category %></h3>
+      <p class="desc"><%= @beer.description %></p>
+      <p class="price">R$ <%= @beer.price %></p>
+      <p class="buy">Buy now</p>
+    </div>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_beer_path(@beer) %> |
 <%= link_to 'Back', beers_path %>
