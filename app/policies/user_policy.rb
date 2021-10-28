@@ -9,6 +9,14 @@ class UserPolicy < ApplicationPolicy
     owner_or_admin?
   end
 
+  def edit?
+    update?
+  end
+
+  def update?
+    owner_or_admin?
+  end
+
   private
 
   def owner_or_admin?
