@@ -2,7 +2,9 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update]
 
   def sale
-    @sales = Order.where(beers: { user_id: current_user })
+    @user = User.find(params[:user_id])
+    @sales = Order.joins(:beer).where(beers: { user_id: current_user }).reject { |order| order.user_id == current_user.id }
+    authorize @user
   end
 
   def show
