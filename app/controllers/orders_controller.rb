@@ -7,13 +7,13 @@ class OrdersController < ApplicationController
     @order = Order.new
     @order.user = current_user
     @order.date = Time.now
-    @order.beer_id = params[:beer_id] 
+    @order.beer_id = params[:beer_id]
     authorize @order
 
     if @order.save
       redirect_to orders_path, notice: 'Order was successfully created into the catalog.'
     else
-      redirect_to beer_path(@order.beer_id), notice: 'Order was not created'  
+      redirect_to beer_path(@order.beer_id), notice: 'Order was not created'
     end
   end
 

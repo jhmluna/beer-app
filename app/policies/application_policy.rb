@@ -36,6 +36,10 @@ class ApplicationPolicy
     false
   end
 
+  def sale?
+    false
+  end
+
   class Scope
     def initialize(user, scope)
       @user = user
