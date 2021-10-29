@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Beers</h1>
+  <h1>Beer List</h1>
 
   <div class="row row-cols-1 row-cols-md-4">
     <% @beers.each do |beer| %>
@@ -16,8 +16,9 @@
       </div>
     <% end %>
   </div>
+
   <br>
   <% if policy(Beer).new? %>
-    <%= link_to 'New Beer', new_beer_path %>
+   <p> <%= link_to 'Sell Beer', new_beer_path, class: "btn btn-primary" %></p>
   <% end %>
 </div>
