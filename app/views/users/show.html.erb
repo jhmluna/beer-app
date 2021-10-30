@@ -1,5 +1,5 @@
 <div class="container">
-  <h2 class="display-4 my-4">Meus dados</h2>
+  <h2 class="display-4 my-4">My profile</h2>
 
   <form action="/users" accept-charset="UTF-8" method="post">
     <div class="row form-group">
@@ -9,13 +9,13 @@
       </div>
     </div>
     <div class="row form-group align-items-center">
-      <label class="col-sm-2 col-form-label text-right">Nome completo</label>
+      <label class="col-sm-2 col-form-label text-right">Full name</label>
       <div class="col-sm-4">
         <p class="mb-0"><%= @user.full_name %></p>
       </div>
     </div>
     <div class="row form-group align-items-center">
-      <label class="col-sm-2 col-form-label text-right">Endereço</label>
+      <label class="col-sm-2 col-form-label text-right">Address</label>
       <div class="col-sm-4">
         <p class="mb-0"><%= @user.address %></p>
       </div>
