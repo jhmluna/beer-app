@@ -1,6 +1,6 @@
 class BeersController < ApplicationController
   before_action :set_beer, only: %i[show edit update destroy]
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @beers = policy_scope(Beer)
@@ -8,11 +8,6 @@ class BeersController < ApplicationController
 
   def show
     # set_beer - Substituido pelo before_action
-  end
-
-  def destroy
-    @beer.destroy
-    redirect_to beers_url, notice: 'Beer has been removed.'
   end
 
   def edit
@@ -38,6 +33,11 @@ class BeersController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @beer.destroy
+    redirect_to beers_url, notice: 'Beer has been removed.'
   end
 
   private
