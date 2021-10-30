@@ -10,11 +10,6 @@ class BeersController < ApplicationController
     # set_beer - Substituido pelo before_action
   end
 
-  def destroy
-    @beer.destroy
-    redirect_to beers_url, notice: 'Beer has been removed.'
-  end
-
   def edit
   end
 
@@ -38,6 +33,11 @@ class BeersController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @beer.destroy
+    redirect_to beers_url, notice: 'Beer has been removed.'
   end
 
   private

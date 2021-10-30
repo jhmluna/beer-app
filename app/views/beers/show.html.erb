@@ -1,18 +1,24 @@
-<%# Source: https://codepen.io/ThomasDaubenton/pen/EwVEjE %>
-<div class="card-container">
-  <div class="row">
-    <div class="left col-md-6">
-      <%= cl_image_tag(@beer.photo.key, :height=>250, :crop=>"fill") if @beer.photo.attached? %>
-    </div>
-    <div class="right col-md-6">
-      <h4 class="categorie"><%= @beer.name %></h4>
-      <h3 class="product"><%= @beer.category %></h3>
-      <p class="desc"><%= @beer.description %></p>
-      <p class="price">R$ <%= @beer.price %></p>
-      <p class="buy"><%=link_to "Buy Now", orders_path(beer_id: @beer.id), method: :post %></p>
+<div class="container mt-5">
+  <%# Source: https://codepen.io/ThomasDaubenton/pen/EwVEjE %>
+  <div class="card-container">
+    <div class="row">
+      <div class="left col-md-6">
+        <%= cl_image_tag(@beer.photo.key, :height=>250, :crop=>"fill") if @beer.photo.attached? %>
+      </div>
+      <div class="right col-md-6">
+        <h4 class="categorie"><%= @beer.name %></h4>
+        <h3 class="product"><%= @beer.category %></h3>
+        <p class="desc"><%= @beer.description %></p>
+        <p class="price">R$ <%= @beer.price %></p>
+        <p class="buy"><%=link_to "Buy Now", orders_path(beer_id: @beer.id), method: :post %></p>
+      </div>
     </div>
   </div>
-</div>
 
-<%= link_to 'Edit', edit_beer_path(@beer) %> |
-<%= link_to 'Back', beers_path %> |
+  <% if user_signed_in? && policy(@beer).edit? %>
+    <%# Show the edit button only to the owner or administrator, per beer policy %>
+    <%= link_to 'Edit', edit_beer_path(@beer) %>
+    <%= link_to 'Delete', beer_path(@beer), method: :delete, data: { confirm: "Are you sure you want to remove this beer?"}, class: 'text-danger' %>
+  <% end %>
+  <%= link_to 'Back', beers_path %>
+</div>
