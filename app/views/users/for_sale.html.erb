@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>For Sale</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Beer</th>
+      <th scope="col">Preço</th>
+      <th scope="col">Categoria</th>
+      <th scope="col">Descrição</th>
+      <th scope="col">Editar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @for_sale.each do |beer| %>
+      <tr>
+        <td><%= beer.name %></td>
+        <td><%= beer.price %></td>
+        <td><%= beer.category %></td>
+        <td><%= beer.description %></td>
+        <td><%= link_to 'Edit', edit_beer_path(@for_sale) %></td>
+      </tr>
+      <% end %>
+      raise
+    </tbody>
+</table>

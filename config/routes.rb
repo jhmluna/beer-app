@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   resources :orders, only: %i[index create]
   resources :users, only: %i[show edit update] do
     get 'sales', to: 'users#sale'
+    get 'for_sale', to: 'users#for_sale'
   end
 end

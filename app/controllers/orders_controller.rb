@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
     @orders = policy_scope(Order.where(user_id: current_user))
   end
 
- def create
+  def create
     @order = Order.new
     @order.user = current_user
     @order.date = Time.now
@@ -16,5 +16,4 @@ class OrdersController < ApplicationController
       redirect_to beer_path(@order.beer_id), notice: 'Order was not created'
     end
   end
-
 end

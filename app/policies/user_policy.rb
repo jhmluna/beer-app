@@ -13,6 +13,10 @@ class UserPolicy < ApplicationPolicy
     owner_or_admin?
   end
 
+  def for_sale?
+    owner_or_admin?
+  end
+
   def edit?
     update?
   end
