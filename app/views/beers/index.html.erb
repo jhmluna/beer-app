@@ -1,6 +1,11 @@
-<div class="container">
-  <h1>Beer List</h1>
+<div class="banner" style="background-image: url('https://images.unsplash.com/photo-1536584979139-dde0784c7c75?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=markus-spiske-0376tfLb89c-unsplash.jpg&w=1920')">
+  <div class="container">
+    <h1>BEER</h1>
+    <p>COMPRE E VENDA CERVEJAS ARTESANAIS</p>
+  </div>
+</div>
 
+<div class="container">
   <div class="row row-cols-1 row-cols-md-4">
     <% @beers.each do |beer| %>
       <div class="col mb-4 index-card">
@@ -17,3 +22,41 @@
     <% end %>
   </div>
 </div>
+
+<span class="accessbox">
+  <div id="modal-alert" class="modal-container">
+    <div class="modal">
+      <button class="close">X</button>
+      <h2>Atenção</h2>
+      <p>O conteúdo deste site é direcionado a pessoas com mais de 18 anos!</p>
+    </div>
+  </div>
+</span>
+
+<script>
+  function initModal(modal) {
+    if(localStorage.closeModal !== modal) {
+      const result = document.getElementById(modal);
+        if(result) {
+        result.classList.add('show');
+        result.addEventListener('click', (e) => {
+          if(e.target.id == modal || e.target.className == 'close') {
+            modal.classList.remove('show');
+            localStorage.closeModal = modal
+          }
+        });
+      }
+    }
+  }
+
+  const banner = document.querySelector('.banner');
+  banner.addEventListener('click', function() {
+  initModal('modal-alert');
+  });
+
+  document.addEventListener('scroll', () => {
+    if(window.pageYOffset > 600) {
+      initModal('modal-alert');
+    }
+  })
+</script>
