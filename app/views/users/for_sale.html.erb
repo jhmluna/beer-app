@@ -1,28 +1,29 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container vh-100">
-  <h1>For Sale</h1>
-
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Beer</th>
-        <th scope="col">Preço</th>
-        <th scope="col">Categoria</th>
-        <th scope="col">Descrição</th>
-        <th scope="col">Editar</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @for_sale.each do |beer| %>
+  <h1>My Beer For Sale</h1>
+  <div>
+    <table class="table">
+      <thead>
         <tr>
-          <td><%= beer.name %></td>
-          <td><%= beer.price %></td>
-          <td><%= beer.category %></td>
-          <td><%= beer.description %></td>
-          <td><%= link_to 'Edit', edit_beer_path(@for_sale) %></td>
+          <th scope="col">Beer</th>
+          <th scope="col">Price</th>
+          <th scope="col">Category</th>
+          <th scope="col">Description</th>
+          <th scope="col">Edit</th>
         </tr>
-        <% end %>
+      </thead>
+      <tbody>
+        <% @for_sale.each do |beer| %>
+          <tr>
+            <td><%= beer.name %></td>
+            <td><%= beer.price %></td>
+            <td><%= beer.category %></td>
+            <td><%= beer.description %></td>
+            <td><%= link_to 'Edit', edit_beer_path(@for_sale) %></td>
+          </tr>
+          <% end %>
       </tbody>
-  </table>
+    </table>
+  </div>
 </div>
