@@ -1,26 +1,25 @@
 <p id="notice"><%= notice %></p>
+<div class="container vh-100">
+  <h1>Orders</h1>
 
-<h1>Orders</h1>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Date</th>
-      <th scope="col">Ticket Number</th>
-      <th scope="col">Beer</th>
-      <th scope="col">Preço</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @orders.each do |order| %>
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= order.date %></td>
-        <td><%= order.id %></td>
-        <td><%= order.beer.name %></td>
-        <td><%= order.beer.price %></td>
+        <th scope="col">Date</th>
+        <th scope="col">Ticket Number</th>
+        <th scope="col">Beer</th>
+        <th scope="col">Preço</th>
       </tr>
-    <% end %>
-  </tbody>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td><%= order.date %></td>
+          <td><%= order.id %></td>
+          <td><%= order.beer.name %></td>
+          <td><%= order.beer.price %></td>
+        </tr>
+      <% end %>
+    </tbody>
 </table>
-
-
+</div>

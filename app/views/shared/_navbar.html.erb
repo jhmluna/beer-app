@@ -5,15 +5,28 @@
     <% end %>
 
     <div class="main">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Busque cerevejas, estilos e mais...">
-        <div class="input-group-append">
-          <button class="btn btn-outline-secondary" type="button">
-            <i class="fa fa-search"></i>
-          </button>
+      <form action=<%beers_path%>>
+        <div class="input-group">
+          <input type="text" name="query" class="form-control" placeholder="Busque cerevejas, estilos e mais...">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
         </div>
-      </div>
+      </form>
     </div>
+
+    <% if false %>
+    <%= form_tag beers_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Busque cerevejas, estilos e mais..."
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+    <% end %>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
