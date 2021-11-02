@@ -20,6 +20,12 @@
         <p class="mb-0"><%= @user.address %></p>
       </div>
     </div>
+    <div class="row form-group align-items-center">
+      <label class="col-sm-2 col-form-label text-left">Age</label>
+      <div class="col-sm-4">
+        <p class="mb-0"><%= @user.age %></p>
+      </div>
+    </div>
     <br>
     <%= link_to 'Update profile', edit_user_path(@user), class: "btn btn-outline-secondary" %>
     </form>
