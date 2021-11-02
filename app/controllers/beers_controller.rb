@@ -3,7 +3,12 @@ class BeersController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @beers = policy_scope(Beer)
+    if params[:query].blank?
+      @beers = policy_scope(Beer)
+    else
+      @beers = policy_scope(Beer.search_beers(params[:query]))
+      render 'index'
+    end
   end
 
   def show

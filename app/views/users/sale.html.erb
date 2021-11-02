@@ -1,27 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Sales</h1>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Date</th>
-      <th scope="col">Ticket Number</th>
-      <th scope="col">Beer</th>
-      <th scope="col">Preço</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% if @sales == nil %>
-      <p>Sell a beer first!</p>
-    <% else @sales.each do |sale| %>
-      <tr>
-        <td><%= sale.date %></td>
-        <td><%= sale.id %></td>
-        <td><%= sale.beer.name %></td>
-        <td><%= sale.beer.price %></td>
-      </tr>
-      <% end %>
-    <% end %>
-  </tbody>
-</table>
+<div class="container vh-100">
+  <h1>My Beer Sales</h1>
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Ticket Number</th>
+          <th scope="col">Beer</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @sales == nil %>
+          <p>Sell a beer first!</p>
+        <% else @sales.each do |sale| %>
+          <tr>
+            <td><%= sale.date %></td>
+            <td><%= sale.id %></td>
+            <td><%= sale.beer.name %></td>
+            <td><%= sale.beer.price %></td>
+          </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
