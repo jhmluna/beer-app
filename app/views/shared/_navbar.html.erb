@@ -1,7 +1,31 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon shadow">
-  <div class="container">
+  <div class="container my-3">
     <%= link_to beers_path, class: "navbar-brand" do %>
       <%= image_tag "logo-beer.png" %>
+    <% end %>
+
+    <div class="main">
+      <form action=<%beers_path%>>
+        <div class="input-group">
+          <input type="text" name="query" class="form-control" placeholder="Busque cerevejas, estilos e mais...">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <% if false %>
+    <%= form_tag beers_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Busque cerevejas, estilos e mais..."
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
     <% end %>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
