@@ -5,22 +5,20 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">Date</th>
+      <th scope="col">Date of Purchase</th>
       <th scope="col">Ticket Number</th>
-      <th scope="col">Beer</th>
-      <th scope="col">Preço</th>
+      <th scope="col">Beer Title</th>
+      <th scope="col">Invoiced Amount</th>
     </tr>
   </thead>
   <tbody>
     <% @orders.each do |order| %>
       <tr>
         <td><%= order.date %></td>
-        <td><%= order.id %></td>
+        <td><%= '%05d' % order.id %></td>
         <td><%= order.beer.name %></td>
-        <td><%= order.beer.price %></td>
+        <td><%= '%.2f' % order.beer.price %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-
