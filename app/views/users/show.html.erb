@@ -3,34 +3,45 @@
 
   <form action="/users" accept-charset="UTF-8" method="post">
     <div class="row form-group">
-      <label class="col-6 col-md-2 col-form-label text-right">E-mail</label>
+      <label class="col-6 col-md-2 col-form-label text-left">E-mail</label>
       <div class="col-6 col-md-4">
         <input class="form-control" type="text" placeholder="<%= @user.email %>" readonly>
       </div>
     </div>
     <div class="row form-group align-items-center">
-      <label class="col-sm-2 col-form-label text-right">Full name</label>
+      <label class="col-sm-2 col-form-label text-left">Full name</label>
       <div class="col-sm-4">
         <p class="mb-0"><%= @user.full_name %></p>
       </div>
     </div>
     <div class="row form-group align-items-center">
-      <label class="col-sm-2 col-form-label text-right">Address</label>
+      <label class="col-sm-2 col-form-label text-left">Address</label>
       <div class="col-sm-4">
         <p class="mb-0"><%= @user.address %></p>
       </div>
     </div>
-        <div class="row form-group align-items-center">
-      <label class="col-sm-2 col-form-label text-right">Age</label>
+    <div class="row form-group align-items-center">
+      <label class="col-sm-2 col-form-label text-left">Age</label>
       <div class="col-sm-4">
         <p class="mb-0"><%= @user.age %></p>
       </div>
     </div>
-    <%= link_to 'Atualizar cadastro', edit_user_path(@user), class: "btn btn-outline-secondary" %>
+    <br>
+    <%= link_to 'Update profile', edit_user_path(@user), class: "btn btn-outline-secondary" %>
     </form>
-
-
-  <%= link_to 'Orders', orders_path %>
-  <%= link_to 'Sales', user_sales_path(user_id: current_user) %>
-  <%= link_to 'For Sale', user_for_sale_path(user_id: current_user) %>
+    <br>
+    <br>
+  <div class="container d-flex">
+    <div class="row">
+      <div class="col-sm-3">
+        <%= link_to 'My Beer Orders', orders_path, class: "btn btn-warning text-white" %>
+      </div>
+      <div class="col-sm-3">
+        <%= link_to 'My Beer Sales', user_sales_path(user_id: current_user), class: "btn btn-warning text-white" %>
+      </div>
+      <div class="col-sm-3">
+        <%= link_to 'My Beer For Sale', user_for_sale_path(user_id: current_user), class: "btn btn-warning text-white" %>
+      </div>
+    </div>
+  </div>
 </div>

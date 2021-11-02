@@ -66,3 +66,5 @@ gem 'cloudinary'
 gem 'devise'
 # Authorization
 gem 'pundit'
+# Search functionality
+gem 'pg_search', '~> 2.3.0'
