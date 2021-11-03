@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<div class="container vh-100">
+<div class="container">
   <h1>My Beer For Sale</h1>
   <div>
     <table class="table">
@@ -20,7 +20,7 @@
             <td><%= beer.price %></td>
             <td><%= beer.category %></td>
             <td><%= beer.description %></td>
-            <td><%= link_to 'Edit', edit_beer_path(@for_sale) %></td>
+            <td><%= link_to 'Edit', edit_beer_path(beer) %></td>
           </tr>
           <% end %>
       </tbody>
