@@ -1,10 +1,13 @@
 <%= simple_form_for(@order) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-  <div class="form-inputs quantity">
-    <%= f.input :quantity, input_html: {value:0}  %> <span>(<%= @beer.quantity %> available)</span>
+ 
+  <div class="form-row align-items-center ml-1">
+
+    Quantity: <%= f.input :quantity, input_html: {value:0}, label: false, id:"quantity"  %>( <span> <%= @beer.quantity %> available)</span>
     <%= f.input :beer_id, input_html: {value:beer.id}, as: :hidden %>
   </div>
+  
 
   <div class="form-actions">
     <%= f.button :submit, "Buy Now", class: "buy" %>

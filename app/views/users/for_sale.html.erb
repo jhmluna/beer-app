@@ -10,6 +10,7 @@
           <th scope="col">Price</th>
           <th scope="col">Category</th>
           <th scope="col">Description</th>
+          <th scope="col">Quantity</th>
           <th scope="col">Edit</th>
         </tr>
       </thead>
@@ -20,6 +21,7 @@
             <td><%= beer.price %></td>
             <td><%= beer.category %></td>
             <td><%= beer.description %></td>
+            <td><%= beer.quantity %></td>
             <td><%= link_to 'Edit', edit_beer_path(beer) %></td>
           </tr>
           <% end %>
