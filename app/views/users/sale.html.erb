@@ -19,10 +19,10 @@
         <% else @sales.each do |sale| %>
           <tr>
             <td><%= sale.date %></td>
-            <td><%= sale.id %></td>
+            <td><%= '%05d' % sale.id %></td>
             <td><%= sale.beer.name %></td>
             <td><%= sale.quantity %></td>
-            <td><%= sale.beer.price %></td>
+            <td><%=  '%.2f' % (sale.beer.price * sale.quantity) %></td>
           </tr>
           <% end %>
         <% end %>
