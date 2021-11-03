@@ -13,23 +13,25 @@
         <h4 class="categorie"><%= @beer.name %></h4>
         <h3 class="product"><%= @beer.category %></h3>
         <p class="desc"><%= @beer.description %></p>
-        <div>
+        <%= render "orders/form", beer:@beer  %></h4> 
+
+        <%# <div>
                                         <div class="input-group">
                                     <span class="input-group-btn">
                                         <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
                                           <span class="glyphicon glyphicon-minus"></span>
                                         </button>
                                     </span>
-                                    <input type="text" id="quantity" name="order[quantity]" class="form-control input-number" value="1" min="1" max=<%= @beer.quantity %>>
-                                    <span class="input-group-btn">
+                                    <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max=<%= @beer.quantity %>>
+        <%#                             <span class="input-group-btn">
                                         <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
                                             <span class="glyphicon glyphicon-plus"></span>
                                         </button>
                                     </span>
                                 </div>
-        </div>
+        </div> %>
         <p class="price">R$ <%= @beer.price %></p>
-        <%=link_to "Buy Now", orders_path(beer_id: @beer.id), method: :post, class: "buy" %>
+         <%# <%=link_to "Buy Now", orders_path(beer_id: @beer.id), method: :post, class: "buy" %>
       </div>
     </div>
   </div>

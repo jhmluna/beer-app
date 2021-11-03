@@ -4,15 +4,16 @@ class BeersController < ApplicationController
 
   def index
     if params[:query].blank?
-      @beers = policy_scope(Beer)
+      @beers = policy_scope(Beer).where.not(quantity:0)
     else
-      @beers = policy_scope(Beer.search_beers(params[:query]))
+      @beers = policy_scope(Beer.search_beers(params[:query])).where.not(quantity:0)
       render 'index'
     end
   end
 
   def show
     # set_beer - Substituido pelo before_action
+    @order = Order.new
   end
 
   def edit
