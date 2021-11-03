@@ -10,7 +10,7 @@
         <h3 class="product"><%= @beer.category %></h3>
         <p class="desc"><%= @beer.description %></p>
         <p class="price">R$ <%= @beer.price %></p>
-        <p class="buy"><%=link_to "Buy Now", orders_path(beer_id: @beer.id), method: :post %></p>
+        <%=link_to "Buy Now", orders_path(beer_id: @beer.id), method: :post, class: "buy" %>
       </div>
     </div>
   </div>
