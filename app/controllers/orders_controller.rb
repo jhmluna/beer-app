@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :set_query, only: %i[index]
+
   def index
     @orders = policy_scope(Order.where(user_id: current_user))
   end
