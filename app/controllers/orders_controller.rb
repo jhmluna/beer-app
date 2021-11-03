@@ -8,6 +8,8 @@ class OrdersController < ApplicationController
     @order.user = current_user
     @order.date = Time.now
     @order.beer_id = params[:beer_id]
+    @order.quantity = params[:quantity]
+    raise
     authorize @order
 
     if @order.save

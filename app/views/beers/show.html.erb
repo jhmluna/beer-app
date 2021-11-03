@@ -1,3 +1,7 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 <div class="container mt-5 vh-100">
   <%# Source: https://codepen.io/ThomasDaubenton/pen/EwVEjE %>
   <div class="card-container">
@@ -9,6 +13,21 @@
         <h4 class="categorie"><%= @beer.name %></h4>
         <h3 class="product"><%= @beer.category %></h3>
         <p class="desc"><%= @beer.description %></p>
+        <div>
+                                        <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
+                                          <span class="glyphicon glyphicon-minus"></span>
+                                        </button>
+                                    </span>
+                                    <input type="text" id="quantity" name="order[quantity]" class="form-control input-number" value="1" min="1" max=<%= @beer.quantity %>>
+                                    <span class="input-group-btn">
+                                        <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
+                                            <span class="glyphicon glyphicon-plus"></span>
+                                        </button>
+                                    </span>
+                                </div>
+        </div>
         <p class="price">R$ <%= @beer.price %></p>
         <p class="buy"><%=link_to "Buy Now", orders_path(beer_id: @beer.id), method: :post %></p>
       </div>
