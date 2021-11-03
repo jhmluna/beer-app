@@ -1,3 +1,7 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 <div class="container mt-5">
   <%# Source: https://codepen.io/ThomasDaubenton/pen/EwVEjE %>
   <div class="card-container">
@@ -9,8 +13,9 @@
         <h4 class="categorie"><%= @beer.name %></h4>
         <h3 class="product"><%= @beer.category %></h3>
         <p class="desc"><%= @beer.description %></p>
-        <p class="price">R$ <%= @beer.price %></p>
-        <%=link_to "Buy Now", orders_path(beer_id: @beer.id), method: :post, class: "buy" %>
+        <%= render "orders/form", beer:@beer  %></h4> 
+        <p class="price">R$ <%= sprintf('%.2f', @beer.price)%></p>
+         <%# <%=link_to "Buy Now", orders_path(beer_id: @beer.id), method: :post, class: "buy" %>
       </div>
     </div>
   </div>

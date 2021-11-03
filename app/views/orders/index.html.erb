@@ -7,6 +7,7 @@
         <th scope="col">Date of Purchase</th>
         <th scope="col">Ticket Number</th>
         <th scope="col">Beer Title</th>
+        <th scope="col">Quantity</th>
         <th scope="col">Invoiced Amount</th>
       </tr>
     </thead>
@@ -16,6 +17,7 @@
           <td><%= order.date %></td>
           <td><%= '%05d' % order.id %></td>
           <td><%= order.beer.name %></td>
+          <td><%= order.quantity %></td>
           <td><%= '%.2f' % order.beer.price %></td>
         </tr>
       <% end %>

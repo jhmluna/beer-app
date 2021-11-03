@@ -9,6 +9,7 @@
           <th scope="col">Date</th>
           <th scope="col">Ticket Number</th>
           <th scope="col">Beer</th>
+          <th scope="col">Quantity</th>
           <th scope="col">Price</th>
         </tr>
       </thead>
@@ -20,6 +21,7 @@
             <td><%= sale.date %></td>
             <td><%= sale.id %></td>
             <td><%= sale.beer.name %></td>
+            <td><%= sale.quantity %></td>
             <td><%= sale.beer.price %></td>
           </tr>
           <% end %>
